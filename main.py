@@ -1,4 +1,9 @@
+import os
 
+def clear_terminal():
+    # Para Windows
+    if os.name == 'nt':
+        os.system('cls')
 
 class Cliente:
     codigo_atual = 1
@@ -26,6 +31,7 @@ def inicio_sistema():
         opc = input('ACOES DISPONIVEIS \n1- AGENDAR CLIENTE \n2- VER HORÁRIOS AGENDADOS \n3- CANCELAR HORÁRIO \nESCOLHA UMA AÇÃO: ')
     
     if opc == "1":
+        clear_terminal()
         print("AGENDAR CLIENTE")
         nome = input('Digite o nome do cliente: ')
         c1 = Cliente(nome)
@@ -36,11 +42,12 @@ def inicio_sistema():
 
   
     elif opc == "2":
-        print('VER CLIENTES AGENDADOS')
+        clear_terminal()
+        print('LISTA DE  CLIENTES AGENDADOS:')
         if banco_clientes:
             for  cliente in banco_clientes:
                 print()
-                print(f"{cliente}")
+                print(f"> {cliente}")
                 print()
 
         else:
